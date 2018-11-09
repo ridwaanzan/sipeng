@@ -31,7 +31,7 @@ class ControllerDataKaryawan extends Controller
 
         $rules = [
             'kode_karyawan' => 'required',
-            'kode_jabatan' => 'required|numeric',
+            'kode_jabatan' => 'required',
             'gaji_pokok' => 'required',
             'tgl_masuk' => 'required',
             'approve_by' => 'required|numeric',

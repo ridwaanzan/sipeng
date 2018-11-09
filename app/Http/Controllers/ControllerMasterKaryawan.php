@@ -62,27 +62,37 @@ class ControllerMasterKaryawan extends Controller
 
          $pesan = [
             'nama_karyawan.required' => 'Form Nama Karyawan harus diisi!',
-            'nama_karyawan.alpha' => 'Form Nama Karyawan harus alphabhetic character!',
+            'nama_karyawan.alpha_dash' => 'Form Nama Karyawan harus alphabhetic character!',
             'kode_jabatan.required' => 'Form Kode Jabatan harus dipilih!',
             'alamat.required' => 'Form Alamat wajib diisi!',
             'kota.required' => 'Form Kota harus diisi!',
             'kota.alpha' => 'Form Kota harus alphabhetic character!',
             'provinsi.required' => 'Form Provinsi harus diisi!',
-            'provinsi.alpha' => 'Form Kota harus alphabhetic character!',
+            'provinsi.alpha_dash' => 'Form Kota harus alphabhetic character!',
             'kode_pos.required' => 'Form Kode Pos wajib diisi!',
             'negara.required' => 'Form Negara harus diisi!',
             'email.required' => 'Form Email wajib diisi!',
             'email.email' => 'Form Email wajib isi email!',
             'no_rekening.required' => 'Form No. Rekening harus diisi!',
             'an.required' => 'Form A/n Harus diisi!',
-            'an.alpha' => 'Periksa kembali Form A/n Harus alphabhetic!'
+            'an.alpha_dash' => 'Periksa kembali Form A/n Harus alphabhetic!'
         ];
         
         $rules          = [
-            'kode_karyawan' => 'required', 'kode_jabatan' => 'required', 'nama_karyawan' => 'required|alpha', 'alamat' => 'required', 
-            'kota' => 'required', 'kota' => 'required|alpha', 'provinsi' => 'required|alpha', 'kode_pos' => 'required', 
-            'negara' => 'required', 'email' => 'required|email', 'no_rekening' => 'required', 
-            'an' => 'required|alpha', 'bank' => 'required', 'status' => 'required'
+            'kode_karyawan' => 'required', 
+            'kode_jabatan' => 'required', 
+            'nama_karyawan' => 'required|alpha', 
+            'alamat' => 'required', 
+            'kota' => 'required', 
+            'kota' => 'required|alpha', 
+            'provinsi' => 'required|alpha', 
+            'kode_pos' => 'required', 
+            'negara' => 'required', 
+            'email' => 'required|email', 
+            'no_rekening' => 'required', 
+            'an' => 'required|alpha', 
+            'bank' => 'required', 
+            'status' => 'required'
         ];
 
         $validasi = Validator::make($requestData, $rules, $pesan);
@@ -91,14 +101,22 @@ class ControllerMasterKaryawan extends Controller
             return Redirect::back()->withErrors($validasi)->withInput();
         } else {
             $master = new MasterKaryawan;
-            $master->kode_karyawan  = $request->kode_karyawan;  $master->kode_jabatan   = $request->kode_jabatan;
-            $master->nama_karyawan  = $request->nama_karyawan;  $master->alamat         = $request->alamat;
-            $master->kota           = $request->kota;           $master->provinsi       = $request->provinsi;
-            $master->kode_pos       = $request->kode_pos;       $master->negara         = $request->negara;
-            $master->email          = $request->email;          $master->no_rekening    = $request->no_rekening;
-            $master->an             = $request->an;             $master->bank           = $request->bank;
-            $master->keterangan     = $request->keterangan;     $master->status         = $request->status;
-            $master->email          = $request->email;          $master->no_rekening    = $request->no_rekening;
+            $master->kode_karyawan  = $request->kode_karyawan;  
+            $master->kode_jabatan   = $request->kode_jabatan;
+            $master->nama_karyawan  = $request->nama_karyawan;  
+            $master->alamat         = $request->alamat;
+            $master->kota           = $request->kota;           
+            $master->provinsi       = $request->provinsi;
+            $master->kode_pos       = $request->kode_pos;       
+            $master->negara         = $request->negara;
+            $master->email          = $request->email;          
+            $master->no_rekening    = $request->no_rekening;
+            $master->an             = $request->an;             
+            $master->bank           = $request->bank;
+            $master->keterangan     = $request->keterangan;     
+            $master->status         = $request->status;
+            $master->email          = $request->email;          
+            $master->no_rekening    = $request->no_rekening;
             if (Auth::check()) {
                 $master->create_by = $request->username;
             } else {
@@ -112,7 +130,7 @@ class ControllerMasterKaryawan extends Controller
             $user->username     = $request->kode_karyawan;
             $user->email        = $request->email;
             $user->password     = bcrypt("123456");
-            $user->level        = $request->kode_jabatan;
+            $user->level        = '2';
             $user->save();
 
             Session::flash('success', 'Berhasil menambahkan data master karyawan: '.$request->nama_karyawan);

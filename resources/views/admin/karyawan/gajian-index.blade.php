@@ -13,8 +13,8 @@
 					<input style="width: 92%;" type="text" name="kode" value="{{$kode_karyawan}}" disabled>
 				</fieldset>
 				<fieldset style="width:48%; float:left;">
-					<label for="kode_jabatan">Jabatan</label>
-					<input type="hidden" name="kode_jabatan" value="{{$master->kode_jabatan}}">
+					<label for="kode_jabatan">Kode Jabatan</label>
+					<input type="hidden" name="kode_jabatan" value="{{$master->jabatan->kode_jabatan}}">
 					@foreach($jabatan as $part)
 							@if($part->kode_jabatan == $master->kode_jabatan)
 								<input type="text" name="kodejabatan" style="width: 92%;" value="{{$part->nama_jabatan}}" disabled>

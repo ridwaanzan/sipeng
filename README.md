@@ -1,6 +1,6 @@
-## SIPeng
+## SIPeng 2017
 
-Sistem Informasi Penggajian sederhana pesanan seseorang.
+Sistem Informasi Penggajian sederhana pesanan seseorang yang mau sidang.
 
 ## Fitur
 
@@ -14,8 +14,9 @@ Sistem Informasi Penggajian sederhana pesanan seseorang.
 
 ## Alur
 
-- HRD Input new Departemen/Divisi => Jabatan => Tunjangan => Karyawan.
-- HRD Dapat menginput manual ataupun import menggunakan Excel data absensi karyawan, yang secara otomatis menghitung gaji dan potongan karyawan (Dihitung dari jumlah hari kerja dan tidak masuk kerjanya).
+- HRD Input new Departemen/Divisi => Data Jabatan => Data Tunjangan => Data Karyawan => Data Gaji.
+- HRD Dapat menginput manual ataupun import menggunakan Excel data absensi karyawan.
+- HRD click Generate untuk menghitung Gaji karyawan secara menyeluruh.
 
 
 ** Cocok untuk PT. yang menggaji secara harian. **
