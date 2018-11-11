@@ -66,7 +66,7 @@ class ControllerMasterKaryawan extends Controller
             'kode_jabatan.required' => 'Form Kode Jabatan harus dipilih!',
             'alamat.required' => 'Form Alamat wajib diisi!',
             'kota.required' => 'Form Kota harus diisi!',
-            'kota.alpha' => 'Form Kota harus alphabhetic character!',
+            'kota.regex' => 'Form Kota harus alphabhetic character!',
             'provinsi.required' => 'Form Provinsi harus diisi!',
             'provinsi.alpha_dash' => 'Form Kota harus alphabhetic character!',
             'kode_pos.required' => 'Form Kode Pos wajib diisi!',
@@ -75,22 +75,21 @@ class ControllerMasterKaryawan extends Controller
             'email.email' => 'Form Email wajib isi email!',
             'no_rekening.required' => 'Form No. Rekening harus diisi!',
             'an.required' => 'Form A/n Harus diisi!',
-            'an.alpha_dash' => 'Periksa kembali Form A/n Harus alphabhetic!'
+            'an.regex' => 'Periksa kembali Form A/n Harus alphabhetic!'
         ];
         
         $rules          = [
             'kode_karyawan' => 'required', 
             'kode_jabatan' => 'required', 
-            'nama_karyawan' => 'required|alpha', 
-            'alamat' => 'required', 
-            'kota' => 'required', 
-            'kota' => 'required|alpha', 
-            'provinsi' => 'required|alpha', 
+            'nama_karyawan' => 'required|regex:/^[a-zA-Z]+$/|max:50', 
+            'alamat' => 'required',
+            'kota' => 'required|regex:/^[a-zA-Z]+$/u|max:50', 
+            'provinsi' => 'required|not_regex:/^[\pL\s]+$/u|max:50', 
             'kode_pos' => 'required', 
             'negara' => 'required', 
             'email' => 'required|email', 
             'no_rekening' => 'required', 
-            'an' => 'required|alpha', 
+            'an' => 'required|not_regex:/^[\pL\s]+$/u|max:50', 
             'bank' => 'required', 
             'status' => 'required'
         ];
